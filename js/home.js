@@ -11,17 +11,18 @@ $(document).ready(function() {
     // evento para el input
     $input.on('keyup', function(event) {
       var $inputValue = $('div.add-comment>input').val();
-      $('.button-modal').removeAttr('disabled');
+      $('.button-comment').removeAttr('disabled');
       // condicion que deshabilita el button del modal
       if ($inputValue === '' || event.keyCode === 69 && $inputValue.lenght <= 1) {
-        $('.button-modal').attr('disabled', 'disabled');
+        $('.button-comment').attr('disabled', 'disabled');
       }
     });
     // funcionalidad para el button y icon del modal
-    $('.button-modal').on('click', function() {
+    $('.button-comment').on('click', function() {
       var $inputValue = $('div.add-comment>input').val();
       $('.comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
       $inputValue = $('div.add-comment>input').val('');
+      $('.new').html('');
 
     });
     $('.icon-close').on('click', function() {
@@ -49,28 +50,28 @@ $(document).ready(function() {
       // evento para los inputs del modal
       $inputText.on('keyup', function(event) {
         var $inputTextValue = $inputText.val();
-        $('.button-modal').removeAttr('disabled');
+        $('.button-upload').removeAttr('disabled');
         if ($inputTextValue === '' || event.keyCode === 69 && $inputTextValue.lenght <= 1) {
-          $('.button-modal').attr('disabled', 'disabled');
+          $('.button-upload').attr('disabled', 'disabled');
         }
       });
       $inputLink.on('click', function() {
         var $inputLinkValue = $inputLink.val();
-        $('.button-modal').removeAttr('disabled');
+        $('.button-upload').removeAttr('disabled');
       });
       $inputTitle.on('keyup', function(event) {
         var $inputTitleValue = $inputTitle.val();
-        $('.button-modal').removeAttr('disabled');
+        $('.button-upload').removeAttr('disabled');
         if ($inputTitleValue === '' || event.keyCode === 69 && $inputTitleValue.lenght <= 1) {
-          $('.button-modal').attr('disabled', 'disabled');
+          $('.button-upload').attr('disabled', 'disabled');
         }
       });
       $inputVideo.on('click', function() {
         var $inputVideoValue = $inputVideo.val();
-        $('.button-modal').removeAttr('disabled');
+        $('.button-upload').removeAttr('disabled');
       });
       // evento del button del modal: agregando elementos al html
-      $('.button-modal').on('click', function() {
+      $('.button-upload').on('click', function() {
         $('p>a.nick-name').empty();
         $('p>a.nick-name').append($nickName);
         // evento para el input 'add-text'
@@ -94,8 +95,8 @@ $(document).ready(function() {
         $('div.card-conten>iframe.video').attr('src', $inputVideoValue);
         $inputVideoValue = $inputVideo.val('');
         // creando nuevos contenidos
-        var $new = $('.new');
-        $($new).clone().appendTo('.row-news');
+        // var $new = $('.new');
+        $('.user-post').removeClass('hide');
         // deshabilitando modal2
         $('.section-modal2').attr('hidden', 'hidden');
       });
@@ -109,17 +110,17 @@ $(document).ready(function() {
       // evento para los inputs del modal
       $inputTitle.on('keyup', function(event) {
         var $inputTitleValue = $inputTitle.val();
-        $('.button-modal').removeAttr('disabled');  
+        $('.button-upload').removeAttr('disabled');  
         if ($inputTitleValue === '' || event.keyCode === 69 && $inputTitleValue.lenght <= 1) {
-          $('.button-modal').attr('disabled', 'disabled');
+          $('.button-upload').attr('disabled', 'disabled');
         }
       });
       $inputImage.on('click', function() {
         var $inputImageValue = $inputImage.val();
-        $('.button-modal').removeAttr('disabled');  
+        $('.button-upload').removeAttr('disabled');  
       });
       // evento del button del modal: agregando elementos al html
-      $('.button-modal').on('click', function() {
+      $('.button-upload').on('click', function() {
         $('p>a.nick-name').empty();
         $('p>a.nick-name').append($nickName);
         // evento para el input 'add-title'
