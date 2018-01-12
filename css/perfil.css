@@ -15,6 +15,10 @@ nav{
   background: #ff4d4d;
   text-align: center;
 }
+.following{
+ content: url(../assets/images/following-btn.png);
+ margin-left: 35%;
+}
 .frase{
   line-height: 20px;
 }
