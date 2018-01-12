@@ -20,6 +20,7 @@ $(document).ready(function() {
   });
   //  agregando funcion Seguir (al botón seguir)
   $btnFollow.on('click', function() {
+    $(this).addClass('following');
     //  agregando hora de publicación
     $divContainerFollowers .append('');
   });
