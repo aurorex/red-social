@@ -5,25 +5,31 @@ $(document).ready(function() {
   // funcionalidad para el modal 'comentar'
   var $iconComment = $('.icon-comment');
   // evento para el icono 'comment'
+  // $iconComment.on('click', function() {
+  //   $('.section-modal').removeAttr('hidden');
+  //   var $input = $('div.add-comment>input');
+  //   // evento para el input
+  //   $input.on('keyup', function(event) {
+  //     var $inputValue = $('div.add-comment>input').val();
+  //     $('.button-modal').removeAttr('disabled');
+  //     // condicion que deshabilita el button del modal
+  //     if ($inputValue === '' || event.keyCode === 69 && $inputValue.lenght <= 1) {
+  //       $('.button-modal').attr('disabled', 'disabled');
+  //     }
+  //   });
   $iconComment.on('click', function() {
-    $('.section-modal').removeAttr('hidden');
-    var $input = $('div.add-comment>input');
-    // evento para el input
-    $input.on('keyup', function(event) {
-      var $inputValue = $('div.add-comment>input').val();
-      $('.button-modal').removeAttr('disabled');
-      // condicion que deshabilita el button del modal
-      if ($inputValue === '' || event.keyCode === 69 && $inputValue.lenght <= 1) {
-        $('.button-modal').attr('disabled', 'disabled');
-      }
+    $('.append-messages').on('click', function() {
+      $(this).show();
     });
-    // funcionalidad para el button y icon del modal
-    $('.button-modal').on('click', function() {
-      var $inputValue = $('div.add-comment>input').val();
-      $('.comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
-      $inputValue = $('div.add-comment>input').val('');
-
-    });
+    $('.append-messages').toggle('swing');    
+  });
+  
+  // funcionalidad para el button y icon del modal
+  $('.button-modal').on('click', function() {
+    var $inputValue = $('div.add-comment>input').val();
+    $('.comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+    $inputValue = $('div.add-comment>input').val('');
+  });
     $('.icon-close').on('click', function() {
       $('.comments').empty();
       $('.section-modal').attr('hidden', 'hidden');
@@ -140,4 +146,4 @@ $(document).ready(function() {
       });
     });
   });
-});
+// });

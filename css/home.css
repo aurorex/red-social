@@ -41,15 +41,13 @@ header{
   text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 .nickName-style{
   font-family: 'Fascinate', cursive;
-  color : #000000;
+  color : #fff;
+  text-shadow:2px 2px 2px #000000;
   font-size: 20px;
 }
 
->>>>>>> maythe
 .photo-perfil{
   border-radius: 50PX;
   width: 60px;
@@ -138,4 +136,9 @@ header{
 }
 .button-modal{
   background: #ff4d4d;
+}
+
+/*  estilos de prueba */
+.append-messages{
+  background: #26a69a;
 }

@@ -25,8 +25,11 @@ $(document).ready(function() {
     $btnRegistro.attr('disabled', false);
   });
   // CREANDO FUNCION QUE GUARDA DATOS EN EL NAVEGADOR
+  $btnFrase.on('click', function() {
+    localStorage.setItem('img-frase', $imagePhrase.val());
+  });
   $btnRegistro.on('click', function() {
     localStorage.setItem('nick-name', $nickName.val());
-    localStorage.setItem('password', $password.val());
   });
+  
 });
