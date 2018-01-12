@@ -19,9 +19,6 @@ nav{
  content: url(../assets/images/following-btn.png);
  margin-left: 35%;
 }
-.frase{
-  line-height: 20px;
-}
 .container-flex-vertical{
   margin-top: 15px;
   display: flex;

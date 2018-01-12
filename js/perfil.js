@@ -21,7 +21,17 @@ $(document).ready(function() {
   //  agregando funcion Seguir (al botón seguir)
   $btnFollow.on('click', function() {
     $(this).addClass('following');
-    //  agregando hora de publicación
+
     $divContainerFollowers .append('');
   });
+  //  agregando nickName de registro
+  var $nickName = localStorage.getItem('nick-name');
+  $('h6>strong').append($nickName);
+  //  CREANDO VARIALE PARA IMAGENES DE FRASES ALEATORIAS
+  var min = 1;
+  var max = 5;
+  var aleatorio = Math.floor(Math.random() * (max - (min - 1))) + min;
+  var imagePhrase = '<img src="../assets/images/frase' + aleatorio + '.png' + '">';
+  var $frase = $('.frase');
+  $frase.append(imagePhrase);
 });
