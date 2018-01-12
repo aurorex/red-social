@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // obteniendo datos para agregar al header
   var $nickName = localStorage.getItem('nick-name');
-  $('div.div-img>p').append($nickName);
+  $('div.div-nickname>p').append($nickName);
   // funcionalidad para el modal 'comentar'
   var $iconComment = $('.icon-comment');
   // evento para el icono 'comment'
