@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
   });
   // funcionalidad para el modal 'publicar'
-  var $iconAdd = $('div.card-image>a');
+  var $iconAdd = $('.add');
   // evento para el icono add(+)
   $iconAdd.on('click', function() {
     $('.section-modal2').removeAttr('hidden');
@@ -75,27 +75,28 @@ $(document).ready(function() {
         $('p>a.nick-name').append($nickName);
         // evento para el input 'add-text'
         var $inputTextValue = $inputText.val();
-        $('div.card-content>p.text').empty();
+        // $('div.card-content>p.text').empty();
         $('div.card-content>p.text').append($inputTextValue);
         $inputTextValue = $inputText.val('');
         // evento para el input 'add-link'
         var $inputLinkValue = $inputLink.val();
-        $('div.card-content>a.link').removeAttr('href');
+        // $('div.card-content>a.link').removeAttr('href');
         $('div.card-content>a.link').attr('href', $inputLinkValue);
         $inputLinkValue = $inputLink.val('');
         // evento para el input 'add-title'
         var $inputTitleValue = $inputTitle.val();
-        $('div.card-content>span.title').empty();
+        // $('div.card-content>span.title').empty();
         $('div.card-content>span.title').append($inputTitleValue);
         $inputTitleValue = $inputTitle.val('');
         // evento para el input 'add-video'
         var $inputVideoValue = $inputVideo.val();
-        $('div.card-content>iframe.video').removeAttr('src');
+        // $('div.card-content>iframe.video').removeAttr('src');
         $('div.card-conten>iframe.video').attr('src', $inputVideoValue);
         $inputVideoValue = $inputVideo.val('');
         // creando nuevos contenidos
         var $new = $('.new');
-        $($new).clone().appendTo('.row-news');
+        $($new).clone().appendTo('.col-news');
+        $($new).show();
         // deshabilitando modal2
         $('.section-modal2').attr('hidden', 'hidden');
       });
@@ -124,17 +125,16 @@ $(document).ready(function() {
         $('p>a.nick-name').append($nickName);
         // evento para el input 'add-title'
         var $inputTitleValue = $inputTitle.val();
-        $('div.card-content>span.title').empty();
         $('div.card-content>span.title').append($inputTitleValue);
         $inputTitleValue = $inputTitle.val('');
         // evento para el input 'add-img'
         var $inputImageValue = $inputImage.val();                
-        $('div.card-content>img.img').removeAttr('src');
         $('div.card-content>img.img').attr('src', '../assets/images/' + $inputImageValue);
         $inputImageValue = $inputImage.val('');
         // creando nuevos contenidos
         var $new = $('.new');
-        $($new).clone().appendTo('.row-news');
+        $($new).clone().appendTo('.col-news');
+        $($new).show();
         // deshabilitando modal2
         $('.section-modal2').attr('hidden', 'hidden');
       });
