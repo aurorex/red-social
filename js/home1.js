@@ -14,6 +14,9 @@ $(document).ready(function() {
   $('.button-video').on('click', function() {
     $('.section-modal-video').toggle('show');
   });
+  $('.button-link').on('click', function() {
+    $('.section-modal-link').toggle('show');
+  });
   // funcionalidad para el icono 'close' de la seccion de modales
   $('.icon-close-text').on('click', function() {
     $('.section-modal-text').toggle('hide');
@@ -26,6 +29,9 @@ $(document).ready(function() {
   });
   $('.icon-close-comment').on('click', function() {
     $('.section-modal-comment').toggle('hide');
+  });
+  $('.icon-close-link').on('click', function() {
+    $('.section-modal-link').toggle('hide');
   });
   // funcionalidad para validar el 'input-text'
   var $inputText = $('.input-text');
@@ -41,38 +47,25 @@ $(document).ready(function() {
   });
   // funcion para validar el 'input-image'
   var $inputImage = $('.input-image');
-  $inputImage.on('', function() {
+  $inputImage.on('focus', function() {
     var $inputImageValue = $inputImage.val();
+    console.log($inputImageValue);
     if ($inputImageValue === '') {
       $('.button-modal-image').attr('disabled', 'disabled');
       $('.button-modal-image').removeClass('skyblue');
-      alert('NO PUEDES INGRESAR TEXTO VACÍO');
     } else {
       $('.button-modal-image').removeAttr('disabled');
       $('.button-modal-image').addClass('skyblue', 'skyblue');
     }
   });
-  // funcion para validar el 'input-file'
-  var $inputFile = $('.input-file');
-  $inputFile.on('', function() {
-    var $inputFileValue = $inputFile.val();
-    if ($inputFileValue === '') {
-      $('.button-modal-image').attr('disabled', 'disabled');
-      $('.button-modal-image').removeClass('skyblue');
-      alert('NO PUEDES INGRESAR TEXTO VACÍO');
-    } else {
-      $('.button-modal-image').removeAttr('disabled');
-      $('.button-modal-image').addClass('skyblue', 'skyblue');
-    }
-  });
+  
   // funcion para validar el 'input-video'
   var $inputVideo = $('.input-video');
-  $inputVideo.on('click', function() {
+  $inputVideo.on('focus', function() {
     var $inputVideoValue = $inputVideo.val();
     if ($inputVideoValue === '') {
       $('.button-modal-video').attr('disabled', 'disabled');
       $('.button-modal-video').removeClass('skyblue');
-      alert('NO PUEDES INGRESAR TEXTO VACÍO');
     } else {
       $('.button-modal-video').removeAttr('disabled');
       $('.button-modal-video').addClass('skyblue', 'skyblue');
@@ -83,6 +76,7 @@ $(document).ready(function() {
     var $inputTextValue = $inputText.val();
     $('.add-publications').append('<div class="col s6 prototype-text">' + 
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
+                                    '<p class="description"></p>' +
                                     '<p class="text-container">' + $inputTextValue + '</p>' +
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
@@ -126,23 +120,10 @@ $(document).ready(function() {
   // evento para el button del 'image'
   $('.button-modal-image').on('click', function() {
     var $inputImageValue = $inputImage.val();
-    var $inputFileValue = $inputFile.val();
-    if ($inputImageValue.length > 1 && $inputFileValue.length < 1) {
-      $('.add-publications').append('<div class="col s6 prototype-image">' + 
+    $('.add-publications').append('<div class="col s6 prototype-image">' + 
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
-                                    '<div class="image-container">' + $inputImageValue + '</div>' +
-                                    '<div class="div-icons ">' +
-                                      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-                                    '</div>' +
-                                    '<div class="add-comments"></div>' +
-                                  '</div>');
-    }
-    if ($inputFileValue.length > 1 && $inputImageValue.length < 1) {
-      $('.add-publications').append('<div class="col s6 prototype-image">' + 
-                                    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
-                                    '<div class="image-container">' + '<img src=" ../assets/images/' + $inputFileValue + '">' + '</div>' +
+                                    '<p class="description"></p>' +
+                                    '<div class="image-container">' + '<img class="responsive-img" src="' + $inputImageValue + '">' + '</div>' +
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
@@ -150,9 +131,7 @@ $(document).ready(function() {
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
                                   '</div>');  
-    }
     $inputImageValue = $inputImage.val('');
-    $inputFileValue = $inputFile.val('');
     $('.button-modal-image').attr('disabled', 'disabled');
     $('.button-modal-image').removeClass('skyblue');
     $('.section-modal-image').toggle('hide');   
@@ -162,7 +141,8 @@ $(document).ready(function() {
     var $inputVideoValue = $inputVideo.val();
     $('.add-publications').append('<div class="col s6 prototype-video">' + 
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
-                                    '<div class="video-container">' + '<iframe width="560" height="315" src="' + $inputVideoValue + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' + '</div>' +
+                                    '<p class="description"></p>' +
+                                    '<div class="video-container">' + '<iframe width="560" height="315" src="' + $inputVideoValue + '" frameborder="0" allowfullscreen></iframe>' + '</div>' +
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
@@ -171,7 +151,6 @@ $(document).ready(function() {
                                     '<div class="add-comments"></div>' +
                                   '</div>');
     $inputVideoValue = $inputVideo.val('');
-    $inputFileValue = $inputFile.val('');
     $('.button-modal-video').attr('disabled', 'disabled');
     $('.button-modal-video').removeClass('skyblue');
     $('.section-modal-video').toggle('hide');
