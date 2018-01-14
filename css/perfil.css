@@ -1,48 +1,60 @@
-body{
-  font-family: 'Open Sans Condensed', sans-serif;
+Body{
+  margin: 0;
+  padding: 0;
+  background-color: hsla(0, 100%, 90%, 0.3);
 }
 nav{
-  background:#ffffff;
-  color: #000000;
+  background: #ef3b36;
+  background: -webkit-linear-gradient(to right, #ef3b36, #ffffff);
+  background: linear-gradient(to right, #ef3b36, #ffffff);
 }
-.photo-perfil{
-  border-radius: 50px;
+.brand-logo{
+  font-family: 'Dancing Script', cursive;
 }
-.btn-follow{
-  text-align: right;
+main{
+  background-image: url(../assets/images/background-perfil.jpg);
+  height: 100%;
+
 }
-.follow{
-  background: #ff4d4d;
-  text-align: center;
-}
-.following{
- content: url(../assets/images/following-btn.png);
- margin-left: 35%;
-}
-.container-flex-vertical{
-  margin-top: 15px;
+.container-user-photo{
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content: center;
+
 }
-.nickName{
-  text-align: center;
-  font-size: 25px;
+.border-radius{
+  border: 2px solid #000000;
+  border-radius: 50px;
+  padding: 10px;
 }
-main{
-  background-image: url(../assets/images/background.png);
-  height:100vh;
+.user-photo{
+  width: 100px;
+  height: 100px;
+}
+h5{
+  color: hsl(0, 100%, 30%);
+}
+textarea{
+ background-color: hsla(0, 100%, 50%, 0.3) !important;
+ color: #ffff;
 }
 .container-posts{
-  width: 100%;
-  height: auto;
-  background:#ff4d4d;
+  background-color: #ffff;
+  border-radius: 10px;
   padding: 10px;
 }
 .time{
-  color: #ffff;
-  background:#40E0D0 ;
   margin-bottom: 10px;
+  color: hsl(0, 100%, 30%);
+}
+.btn-posting{
+  background: rgb(255, 0, 0);opacity:0.6;
+}
+.btn-posting:hover{
+  background: rgb(255, 0, 0);opacity:0.6;
+}
+.btn-posting:active{
+  background: hsla(0, 100%, 30%, 0.3);
 }

@@ -5,36 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perfil</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Ranga" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bellefair|Dancing+Script|Lobster|Ranga" rel="stylesheet">
     <link rel="stylesheet" href="../vendors/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="../css/perfil.css">
   </head>
   <body >
-    <a href="home.html"><i class="material-icons">arrow_back</i></a>
-    <nav class="nav-extended">
-      <div class="nav-wrapper">
-        <div class="container">
-          <div class="row">
-            <div class="col s4 l4 container-flex-vertical">
-              <div class="div-perfil-photo">
-                <img class="photo-perfil" src="../assets/images/rosa.jpg" alt="">
-                <h6 class="nickName"><strong></strong></h6>
-              </div>
-            </div>
-            <div class="col s8">
-             <div class="frase"></div>
-             <hr>
-             <div class="btn-follow">
-               <a class="waves-effect waves-light btn follow"><i class="material-icons right"></i>Seguir</a>
-             </div>
-            </div>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo center">Juntas</a>
+          <ul class="left">
+            <!---ICONO PARA VOLVE A LA VISTA HOME-->
+            <a href="home.html">
+              <i class="material-icons">chevron_left</i>
+            </a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!---SECCION INFORMACION DEL USUARIO : PHOTO NICK-NAME-->
+      <section class=" container">
+        <div class="row">
+          <div class="col s12 l12 container-user-photo">
+           <div class="border-radius">
+             <img class="user-photo" src="../assets/images/user-female.png" alt="user">
+           </div>
+           <div class="nick-name">
+             <h4></h4>
+           </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <main>
+      <!---SECCION POSTS AND FOLLOWERS-->
       <section>
         <ul id="tabs-swipe-demo" class="tabs">
           <li class="tab col s3"><a href="#test-swipe-1"><strong>Publicaciones</strong></a></li>
@@ -42,19 +45,15 @@
         </ul>
         <!---AREA PUBLICACIONES-->
         <div id="test-swipe-1" class="col s12" id="post">
-          <div class="posting">
-            <textarea type="text" name="insert-links" id="insert-text" placeholder="Comparte experiencias,historias,pensamientos..."></textarea>
-            <hr><!---separación entre texto y botón-->
+          <!---CREANDO TEXTAREA PARA ESCRIBIR PUBLICACIONES-->
+          <div class="input-field col s12">
+            <h5><strong>Comparte tu historia</strong></h5>
+            <textarea class="materialize-textarea"></textarea>
             <!---CREANDO BOTON PARA PUBLICAR-->
-            <div class="button-characters">
-              <button class="btn waves-effect waves-light btn-posting" type="submit" name="action" disabled>Publicar
-                <i class="material-icons right">send</i>
-              </button>
-            </div>
-            <br>
+            <button class="btn btn-posting" type="submit" name="action" disabled>Publicar</button>
           </div>
           <!---CREANDO CONTENEDOR DE TODAS LAS PUBLICACIONES DEL USUARIO-->
-          <div id="div-posts">
+          <div class="col s12" id="div-posts">
           </div>
         </div>
         <!---AREA DE SEGUIDORES-->
