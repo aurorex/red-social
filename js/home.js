@@ -20,12 +20,12 @@ $(document).ready(function() {
     // funcionalidad para el button y icon del modal
     $('.button-modal').on('click', function() {
       var $inputValue = $('div.add-comment>input').val();
-      $('.comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+      localStorage.setItem('comments', '<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+      var $comments = localStorage.getItem('comments');
+      $('.comments').append($comments);
       $inputValue = $('div.add-comment>input').val('');
-
     });
     $('.icon-close').on('click', function() {
-      $('.comments').empty();
       $('.section-modal').attr('hidden', 'hidden');
     });
   });
@@ -75,22 +75,18 @@ $(document).ready(function() {
         $('p>a.nick-name').append($nickName);
         // evento para el input 'add-text'
         var $inputTextValue = $inputText.val();
-        // $('div.card-content>p.text').empty();
         $('div.card-content>p.text').append($inputTextValue);
         $inputTextValue = $inputText.val('');
         // evento para el input 'add-link'
         var $inputLinkValue = $inputLink.val();
-        // $('div.card-content>a.link').removeAttr('href');
         $('div.card-content>a.link').attr('href', $inputLinkValue);
         $inputLinkValue = $inputLink.val('');
         // evento para el input 'add-title'
         var $inputTitleValue = $inputTitle.val();
-        // $('div.card-content>span.title').empty();
         $('div.card-content>span.title').append($inputTitleValue);
         $inputTitleValue = $inputTitle.val('');
         // evento para el input 'add-video'
         var $inputVideoValue = $inputVideo.val();
-        // $('div.card-content>iframe.video').removeAttr('src');
         $('div.card-conten>iframe.video').attr('src', $inputVideoValue);
         $inputVideoValue = $inputVideo.val('');
         // creando nuevos contenidos
