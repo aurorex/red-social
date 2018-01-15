@@ -86,17 +86,22 @@ $(document).ready(function() {
   // funcionalidad para el boton del modal de texto
   $('.button-modal-text').on('click', function() {
     var $inputTextValue = $inputText.val();
-    $('.add-publications').append('<div class="col s6 prototype-text">' + 
-                                    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
-                                    '<p class="description"></p>' +
-                                    '<p class="text-container">' + $inputTextValue + '</p>' +
-                                    '<div class="div-icons ">' +
-                                      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-                                    '</div>' +
-                                    '<div class="add-comments"></div>' +
-                                  '</div>');  
+    var publications = '<div class="col s6 prototype-text">' + 
+    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
+    '<p class="description"></p>' +
+    '<p class="text-container">' + $inputTextValue + '</p>' +
+    '<div class="div-icons ">' +
+      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
+    '</div>' +
+    '<div class="add-comments"></div>' +
+    '</div>';
+    // guardar publicaciones
+    localStorage.setItem('publications-text', publications);
+    var $publications = localStorage.getItem('publications-text');
+    $('.add-publications').append($publications);
+    // evento del icon-comment
     var $iconComment = $('.icon-comment');
     console.log($iconComment.length);
     console.log($('.add-comments'));
@@ -120,15 +125,20 @@ $(document).ready(function() {
         // evento para el button de modal de 'comment'
         $('.button-modal-comment').on('click', function() {
           var $inputCommentValue = $inputComment.val();
-          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          // guardar data de comentarios
+          var comments = '<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>';
+          localStorage.setItem('comments', comments);
+          var $comments = localStorage.getItem('comments');
+          $($('.add-comments')[index]).append($comments);
+          // ejecucuion del button
           $inputCommentValue = $inputComment.val('');
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
-          $('.section-modal-comment').toggle('hide');
+          $('.section-modal-comment').toggle('hide'); 
         });   
       });
-    });
-    
+    }); 
+    // ejecucion del button
     $('.description').append($('.description-text').val());
     $('.description-text').val('');
     $inputTextValue = $inputText.val('');
@@ -139,17 +149,22 @@ $(document).ready(function() {
   // evento para el button del 'image'
   $('.button-modal-image').on('click', function() {
     var $inputImageValue = $inputImage.val();
-    $('.add-publications').append('<div class="col s6 prototype-image">' + 
-                                    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
-                                    '<p class="description"></p>' +
-                                    '<div class="image-container">' + '<img class="responsive-img" src="' + $inputImageValue + '">' + '</div>' +
-                                    '<div class="div-icons ">' +
-                                      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-                                    '</div>' +
-                                    '<div class="add-comments"></div>' +
-                                  '</div>'); 
+    var publicationsImage = '<div class="col s6 prototype-image">' + 
+    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
+    '<p class="description"></p>' +
+    '<div class="image-container">' + '<img class="responsive-img" src="' + $inputImageValue + '">' + '</div>' +
+    '<div class="div-icons ">' +
+      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
+    '</div>' +
+    '<div class="add-comments"></div>' +
+    '</div>';             
+    // guardar publicaciones
+    localStorage.setItem('publications-image', publicationsImage);
+    var $publicationsImage = localStorage.getItem('publications-image');
+    $('.add-publications').append($publicationsImage);
+    // evento para el icon
     var $iconComment = $('.icon-comment');
     console.log($iconComment.length);
     console.log($('.add-comments'));
@@ -173,7 +188,12 @@ $(document).ready(function() {
         // evento para el button de modal de 'comment'
         $('.button-modal-comment').on('click', function() {
           var $inputCommentValue = $inputComment.val();
-          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          // guardar data de comentarios
+          var comments = '<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>';
+          localStorage.setItem('comments', comments);
+          var $comments = localStorage.getItem('comments');
+          $($('.add-comments')[index]).append($comments);
+          // ejecucuion del button
           $inputCommentValue = $inputComment.val('');
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
@@ -181,6 +201,7 @@ $(document).ready(function() {
         });   
       });
     });
+    // ejecucion del button
     $('.description').append($('.description-image').val());
     $('.description-image').val(''); 
     $inputImageValue = $inputImage.val('');
@@ -191,17 +212,22 @@ $(document).ready(function() {
   // evento para el button de modal de 'link' 
   $('.button-modal-link').on('click', function() {
     var $inputLinkValue = $inputLink.val();
-    $('.add-publications').append('<div class="col s6 prototype-video">' + 
-                                    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
-                                    '<p class="description"></p>' +
-                                    '<a href="' + $inputLinkValue + '" target="_blank" class="btn">' + $inputLinkValue + '</a>' +
-                                    '<div class="div-icons ">' +
-                                      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-                                    '</div>' +
-                                    '<div class="add-comments"></div>' +
-                                  '</div>');
+    var publicationsLink = '<div class="col s6 prototype-video">' + 
+    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
+    '<p class="description"></p>' +
+    '<a href="' + $inputLinkValue + '" target="_blank" class="btn">' + $inputLinkValue + '</a>' +
+    '<div class="div-icons ">' +
+      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
+    '</div>' +
+    '<div class="add-comments"></div>' +
+    '</div>';
+    // guardar publicaciones
+    localStorage.setItem('publications-link', publicationsLink);
+    var $publicationsLink = localStorage.getItem('publications-link');
+    $('.add-publications').append($publicationsLink);
+    // evento para el icon
     var $iconComment = $('.icon-comment');
     console.log($iconComment.length);
     console.log($('.add-comments'));
@@ -225,7 +251,12 @@ $(document).ready(function() {
         // evento para el button de modal de 'comment'
         $('.button-modal-comment').on('click', function() {
           var $inputCommentValue = $inputComment.val();
-          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          // guardar data de comentarios
+          var comments = '<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>';
+          localStorage.setItem('comments', comments);
+          var $comments = localStorage.getItem('comments');
+          $($('.add-comments')[index]).append($comments);
+          // ejecucuion del button
           $inputCommentValue = $inputComment.val('');
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
@@ -233,6 +264,7 @@ $(document).ready(function() {
         });   
       });
     });
+    // ejecucuion del button
     $('.description').append($('.description-link').val());
     $('.description-link').val('');
     $inputLinkValue = $inputLink.val('');
@@ -243,17 +275,22 @@ $(document).ready(function() {
   // evento para el button de modal de video 
   $('.button-modal-video').on('click', function() {
     var $inputVideoValue = $inputVideo.val();
-    $('.add-publications').append('<div class="col s6 prototype-video">' + 
-                                    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
-                                    '<p class="description"></p>' +
-                                    '<div class="video-container">' + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + $inputVideoValue + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' + '</div>' +
-                                    '<div class="div-icons ">' +
-                                      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-                                    '</div>' +
-                                    '<div class="add-comments"></div>' +
-                                  '</div>');
+    var publicationsVideo = '<div class="col s6 prototype-video">' + 
+    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
+    '<p class="description"></p>' +
+    '<div class="video-container">' + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + $inputVideoValue + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' + '</div>' +
+    '<div class="div-icons ">' +
+      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
+    '</div>' +
+    '<div class="add-comments"></div>' +
+    '</div>';
+    // guardar publicaciones
+    localStorage.setItem('publications-video', publicationsVideo);
+    var $publicationsVideo = localStorage.getItem('publications-video');
+    $('.add-publications').append($publicationsVideo);
+    // evento para el icon
     var $iconComment = $('.icon-comment');
     console.log($iconComment.length);
     console.log($('.add-comments'));
@@ -277,7 +314,12 @@ $(document).ready(function() {
         // evento para el button de modal de 'comment'
         $('.button-modal-comment').on('click', function() {
           var $inputCommentValue = $inputComment.val();
-          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          // guardar data de comentarios
+          var comments = '<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>';
+          localStorage.setItem('comments', comments);
+          var $comments = localStorage.getItem('comments');
+          $($('.add-comments')[index]).append($comments);
+          // ejecucuion del button
           $inputCommentValue = $inputComment.val('');
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
@@ -285,6 +327,7 @@ $(document).ready(function() {
         });   
       });
     });
+    // ejecucion del button
     $('.description').append($('.description-video').val());
     $('.description-video').val('');
     $inputVideoValue = $inputVideo.val('');
@@ -292,5 +335,18 @@ $(document).ready(function() {
     $('.button-modal-video').removeClass('skyblue');
     $('.section-modal-video').toggle('hide');
   });
+  // guardar data al cargar la pagina 
+  var $publications = localStorage.getItem('publications-text');
+  $('.add-publications').append($publications);
+  var $publicationsImage = localStorage.getItem('publications-image');
+  $('.add-publications').append($publicationsImage);
+  var $publicationsLink = localStorage.getItem('publications-link');
+  $('.add-publications').append($publicationsLink);
+  var $publicationsVideo = localStorage.getItem('publications-video');
+  $('.add-publications').append($publicationsVideo);
+  // guardar data de los comentarios al cargar la pagina
+  var $comments = localStorage.getItem('comments');
+  $('.add-comments').append($comments);
+  var $iconComment = $('.icon-comment');
 });
 
