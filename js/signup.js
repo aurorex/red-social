@@ -88,13 +88,13 @@ $(document).ready(function() {
     var max = 5;
     //  CREANDO VARIALE PARA IMAGENES DE FRASES ALEATORIAS
     var aleatorio = Math.floor(Math.random() * (max - (min - 1))) + min;
-    var imagePhrase = '<img class="responsive-img src="../assets/images/frase' + aleatorio + '.png' + '">';
+    var imagePhrase = '<img class="responsive-img" src="../assets/images/frase' + aleatorio + '.png' + '">';
 
     var phraseContainer = $('.frase'); // div que contiene el botón de frase y almacenará el img-frase
-    phraseContainer.empty();
+    // phraseContainer.empty();
     phraseContainer.append(imagePhrase);
 
-    localStorage.setItem('img-frase', imagePhrase);
+    // localStorage.setItem('img-frase', imagePhrase);
     // console.log("Frase ==>"+imagePhrase);
   });
   // CREANDO FUNCION QUE GUARDA DATOS EN EL NAVEGADOR
