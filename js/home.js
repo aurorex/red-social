@@ -5,7 +5,23 @@ $(document).ready(function() {
   // funcionalidad para el modal 'comentar'
   var $iconComment = $('.icon-comment');
   // evento para el icono 'comment'
+  // $iconComment.on('click', function() {
+  //   $('.section-modal').removeAttr('hidden');
+  //   var $input = $('div.add-comment>input');
+  //   // evento para el input
+  //   $input.on('keyup', function(event) {
+  //     var $inputValue = $('div.add-comment>input').val();
+  //     $('.button-modal').removeAttr('disabled');
+  //     // condicion que deshabilita el button del modal
+  //     if ($inputValue === '' || event.keyCode === 69 && $inputValue.lenght <= 1) {
+  //       $('.button-modal').attr('disabled', 'disabled');
+  //     }
+  //   });
   $iconComment.on('click', function() {
+<<<<<<< HEAD
+    $('.append-messages').on('click', function() {
+      $(this).show();
+=======
     $('.section-modal').removeAttr('hidden');
     var $input = $('div.add-comment>input');
     // evento para el input
@@ -20,16 +36,33 @@ $(document).ready(function() {
     // funcionalidad para el button y icon del modal
     $('.button-modal').on('click', function() {
       var $inputValue = $('div.add-comment>input').val();
+<<<<<<< HEAD
       $('.comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
       $inputValue = $('div.add-comment>input').val('');
+=======
+      localStorage.setItem('comments', '<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+      var $comments = localStorage.getItem('comments');
+      $('.comments').append($comments);
+      $inputValue = $('div.add-comment>input').val('');
+>>>>>>> master
+>>>>>>> aurora
     });
+    $('.append-messages').toggle('swing');    
+  });
+  
+  // funcionalidad para el button y icon del modal
+  $('.button-modal').on('click', function() {
+    var $inputValue = $('div.add-comment>input').val();
+    $('.comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+    $inputValue = $('div.add-comment>input').val('');
+  });
     $('.icon-close').on('click', function() {
       $('.comments').empty();
       $('.section-modal').attr('hidden', 'hidden');
     });
   });
   // funcionalidad para el modal 'publicar'
-  var $iconAdd = $('div.card-image>a');
+  var $iconAdd = $('.add');
   // evento para el icono add(+)
   $iconAdd.on('click', function() {
     $('.section-modal2').removeAttr('hidden');
@@ -74,27 +107,32 @@ $(document).ready(function() {
         $('p>a.nick-name').append($nickName);
         // evento para el input 'add-text'
         var $inputTextValue = $inputText.val();
-        $('div.card-content>p.text').empty();
         $('div.card-content>p.text').append($inputTextValue);
         $inputTextValue = $inputText.val('');
         // evento para el input 'add-link'
         var $inputLinkValue = $inputLink.val();
-        $('div.card-content>a.link').removeAttr('href');
         $('div.card-content>a.link').attr('href', $inputLinkValue);
         $inputLinkValue = $inputLink.val('');
         // evento para el input 'add-title'
         var $inputTitleValue = $inputTitle.val();
-        $('div.card-content>span.title').empty();
         $('div.card-content>span.title').append($inputTitleValue);
         $inputTitleValue = $inputTitle.val('');
         // evento para el input 'add-video'
         var $inputVideoValue = $inputVideo.val();
+<<<<<<< HEAD
         $('div.card-content>iframe.video').removeAttr('src');
+=======
+>>>>>>> aurora
         $('div.card-conten>iframe.video').attr('src', $inputVideoValue);
         $inputVideoValue = $inputVideo.val('');
         // creando nuevos contenidos
         var $new = $('.new');
+<<<<<<< HEAD
         $($new).clone().appendTo('.row-news');
+=======
+        $($new).clone().appendTo('.col-news');
+        $($new).show();
+>>>>>>> aurora
         // deshabilitando modal2
         $('.section-modal2').attr('hidden', 'hidden');
       });
@@ -108,14 +146,22 @@ $(document).ready(function() {
       // evento para los inputs del modal
       $inputTitle.on('keyup', function(event) {
         var $inputTitleValue = $inputTitle.val();
+<<<<<<< HEAD
         $('.button-modal').removeAttr('disabled');
+=======
+        $('.button-modal').removeAttr('disabled');  
+>>>>>>> aurora
         if ($inputTitleValue === '' || event.keyCode === 69 && $inputTitleValue.lenght <= 1) {
           $('.button-modal').attr('disabled', 'disabled');
         }
       });
       $inputImage.on('click', function() {
         var $inputImageValue = $inputImage.val();
+<<<<<<< HEAD
         $('.button-modal').removeAttr('disabled');
+=======
+        $('.button-modal').removeAttr('disabled');  
+>>>>>>> aurora
       });
       // evento del button del modal: agregando elementos al html
       $('.button-modal').on('click', function() {
@@ -123,20 +169,32 @@ $(document).ready(function() {
         $('p>a.nick-name').append($nickName);
         // evento para el input 'add-title'
         var $inputTitleValue = $inputTitle.val();
+<<<<<<< HEAD
         $('div.card-content>span.title').empty();
         $('div.card-content>span.title').append($inputTitleValue);
         $inputTitleValue = $inputTitle.val('');
         // evento para el input 'add-img'
         var $inputImageValue = $inputImage.val();
         $('div.card-content>img.img').removeAttr('src');
+=======
+        $('div.card-content>span.title').append($inputTitleValue);
+        $inputTitleValue = $inputTitle.val('');
+        // evento para el input 'add-img'
+        var $inputImageValue = $inputImage.val();                
+>>>>>>> aurora
         $('div.card-content>img.img').attr('src', '../assets/images/' + $inputImageValue);
         $inputImageValue = $inputImage.val('');
         // creando nuevos contenidos
         var $new = $('.new');
+<<<<<<< HEAD
         $($new).clone().appendTo('.row-news');
+=======
+        $($new).clone().appendTo('.col-news');
+        $($new).show();
+>>>>>>> aurora
         // deshabilitando modal2
         $('.section-modal2').attr('hidden', 'hidden');
       });
     });
   });
-});
+// });

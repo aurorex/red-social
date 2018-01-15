@@ -1,0 +1,51 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-image: url(../assets/images/background.png);
+}
+
+/* estilos para la sección del header */
+header{
+  background-color: hsl(0, 88%, 67%);
+  height:20vh;
+}
+
+.profile-nav{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav,.photo-profile{
+  display: inline-block;
+}
+
+nav{
+  background-color: transparent;
+  border-bottom: none;
+  color:white;
+}
+
+/* estilos para la seccion modal */
+.modal-text, .modal-image, .modal-video, .modal-comment,.modal-link{
+  /* margin: 100px 250px; */
+  position:fixed;
+  width: 80%;
+  height: 80vh;
+  z-index: 1000;
+  top:0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:column;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* estilos para elementos con jquery */
+.skyblue{
+  background-color: hsl(182, 83%, 39%);
+}

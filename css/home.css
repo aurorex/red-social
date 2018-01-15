@@ -49,8 +49,18 @@ header{
 
 .nickName-style{
   font-family: 'Fascinate', cursive;
+<<<<<<< HEAD
   color : white;
   text-shadow: 2px 2px 2px black;
+=======
+<<<<<<< HEAD
+  color : #fff;
+  text-shadow:2px 2px 2px #000000;
+=======
+  color : white;
+  text-shadow: 2px 2px 2px black;
+>>>>>>> master
+>>>>>>> aurora
   font-size: 20px;
 }
 
@@ -96,6 +106,7 @@ header{
   align-items: center;
   justify-content: center;
   flex-direction:column;
+
 }
 
 .row-modal{
@@ -146,4 +157,9 @@ header{
 }
 .button-modal{
   background: #ff4d4d;
+}
+
+/*  estilos de prueba */
+.append-messages{
+  background: #26a69a;
 }
