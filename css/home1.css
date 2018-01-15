@@ -50,10 +50,10 @@ nav{
 }
 /* estilos para la seccion modal */
 .modal-text, .modal-image, .modal-video, .modal-comment,.modal-link{
-  /* margin: 100px 250px; */
+  margin: 100px 50px; 
   position:fixed;
   width: 80%;
-  height: 80vh;
+  height: 50vh;
   z-index: 1000;
   top:0;
   left:0;
@@ -61,7 +61,11 @@ nav{
   align-items: center;
   justify-content: center;
   flex-direction:column;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color:#000000;
+  color:#ed4264; 
+  border-radius: 10px;
+  padding: 10px;
+   
 }
 
 /* estilos para elementos con jquery */
@@ -72,4 +76,14 @@ nav{
 .add-comments{
   overflow-y: scroll;
   height: 200px;
+}
+
+.input-text, .input-comment{
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.add-publications {
+  border: 2px solid rgba(255, 0, 0, 0.6);
+  padding: 10px;
 }
