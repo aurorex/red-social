@@ -92,7 +92,7 @@ nav{
   background-color:hsla(0, 100%, 90%, 0.3);
 }
 
-.prototype-text {
+.prototype-text, .prototype-link, .prototype-image, .prototype-video{
  border-bottom:2px solid pink;
  border-right:2px solid  pink;
  margin:10px;
@@ -102,9 +102,9 @@ nav{
 }
 
 .color-span{
-  background: #ffff;
+  background: #fff7cc;
   color: hsl(0, 100%, 30%);
-  padding: 20px;
+
 }
 .color-p{
   background: #ed4264;
