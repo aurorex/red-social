@@ -55,9 +55,7 @@ $(document).ready(function() {
   // CREANDO FUNCION QUE VALIDA LOS DATOS DEL IMPUT PASSWORD
 
   $password.on('keyup', function(event) {
-
-    console.log("NickNmae==>"+$nickName.val().length);
-
+    // console.log("NickNmae==>"+$nickName.val().length);
     if ($password.val().length <= 6) {
       $('.comment-password').show();
     } else if ($password.val().length > 6) {
@@ -90,16 +88,17 @@ $(document).ready(function() {
     var max = 5;
     //  CREANDO VARIALE PARA IMAGENES DE FRASES ALEATORIAS
     var aleatorio = Math.floor(Math.random() * (max - (min - 1))) + min;
-    var imagePhrase = '<img src="../assets/images/frase' + aleatorio + '.png' + '">';
+    var imagePhrase = '<img class="responsive-img src="../assets/images/frase' + aleatorio + '.png' + '">';
     
     var phraseContainer = $('.frase'); // div que contiene el botón de frase y almacenará el img-frase
     phraseContainer.empty();
     phraseContainer.append(imagePhrase);
+
+    localStorage.setItem('img-frase', imagePhrase);
+    // console.log("Frase ==>"+imagePhrase);
   });
   // CREANDO FUNCION QUE GUARDA DATOS EN EL NAVEGADOR
-  $btnFrase.on('click', function() {
-    localStorage.setItem('img-frase', $imagePhrase.val());
-  });
+
   $btnRegistro.on('click', function() {
     localStorage.setItem('nick-name', $nickName.val());
   });

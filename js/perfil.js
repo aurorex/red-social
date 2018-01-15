@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // declarando variables
   var $textarea = $('#insert-text');
   var $btnPosting = $('.btn-posting');
   var $divContainerPosts = $('#div-posts');

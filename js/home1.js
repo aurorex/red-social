@@ -2,7 +2,7 @@ $(document).ready(function() {
   // obteniendo datos del localStorage para agregar al header
   var $nickName = localStorage.getItem('nick-name');
   $('.nick-name').append($nickName);
-  var $phrase = localStorage.getItem('phrase');
+  var $phrase = localStorage.getItem('img-frase');
   $('.phrase').append($phrase);
   // funcionalidad para los buttons de la seccion 'portada'
   $('.button-text').on('click', function() {
@@ -47,10 +47,10 @@ $(document).ready(function() {
   });
   // funcion para validar el 'input-image'
   var $inputImage = $('.input-image');
-  $inputImage.on('focus', function() {
+  $inputImage.on('input', function() {
     var $inputImageValue = $inputImage.val();
     console.log($inputImageValue);
-    if ($inputImageValue === '') {
+    if ($inputImageValue.length === null) {
       $('.button-modal-image').attr('disabled', 'disabled');
       $('.button-modal-image').removeClass('skyblue');
     } else {
@@ -61,14 +61,26 @@ $(document).ready(function() {
   
   // funcion para validar el 'input-video'
   var $inputVideo = $('.input-video');
-  $inputVideo.on('focus', function() {
+  $inputVideo.on('input', function() {
     var $inputVideoValue = $inputVideo.val();
-    if ($inputVideoValue === '') {
+    if ($inputVideoValue.length === null) {
       $('.button-modal-video').attr('disabled', 'disabled');
       $('.button-modal-video').removeClass('skyblue');
     } else {
       $('.button-modal-video').removeAttr('disabled');
       $('.button-modal-video').addClass('skyblue', 'skyblue');
+    }
+  });
+  // funcion para validar el 'input-link'
+  var $inputLink = $('.input-link');
+  $inputLink.on('input', function() {
+    var $inputVideoValue = $inputVideo.val();
+    if ($inputVideoValue.length === null) {
+      $('.button-modal-link').attr('disabled', 'disabled');
+      $('.button-modal-link').removeClass('skyblue');
+    } else {
+      $('.button-modal-link').removeAttr('disabled');
+      $('.button-modal-link').addClass('skyblue', 'skyblue');
     }
   });
   // funcionalidad para el boton del modal de texto
@@ -81,10 +93,11 @@ $(document).ready(function() {
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+                                      '<a class="btn-floating  waves-effect waves-light yellow arrow_downward"><i class="material-icons icons">arrow_downward</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
-                                  '</div>');
+                                  '</div>');  
     var $iconComment = $('.icon-comment');
     $iconComment.on('click', function() {
       $('.section-modal-comment').toggle('show');
@@ -100,6 +113,13 @@ $(document).ready(function() {
           $('.button-modal-comment').removeClass('skyblue');
           alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
         }
+        // evento para el icono 'arrow_downward'
+        $('.arrow_downward').on('click', function() {
+          $('.add-comments').on('click', function() {
+            $(this).show();
+          });
+          $('.add-comments').toggle('swing');    
+        });  
       });
       // evento para el button de modal de 'comment'
       $('.button-modal-comment').on('click', function() {
@@ -127,6 +147,7 @@ $(document).ready(function() {
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+                                      '<a class="btn-floating  waves-effect waves-light yellow" arrow_downward "><i class="material-icons icons">arrow_downward</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
@@ -136,16 +157,37 @@ $(document).ready(function() {
     $('.button-modal-image').removeClass('skyblue');
     $('.section-modal-image').toggle('hide');   
   }); 
-  // evento para el button de modal de 'video' 
+  // evento para el button de modal de 'link' 
+  $('.button-modal-link').on('click', function() {
+    var $inputLinkValue = $inputLink.val();
+    $('.add-publications').append('<div class="col s6 prototype-video">' + 
+                                    '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
+                                    '<p class="description"></p>' +
+                                    '<a href="' + $inputLinkValue + '" target="_blank" class="btn">' + $inputLinkValue + '</a>' +
+                                    '<div class="div-icons ">' +
+                                      '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
+                                      '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+                                      '<a class="btn-floating  waves-effect waves-light yellow arrow_downward"><i class="material-icons icons">arrow_downward</i></a>' +
+                                      '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
+                                    '</div>' +
+                                    '<div class="add-comments"></div>' +
+                                  '</div>');
+    $inputLinkValue = $inputLink.val('');
+    $('.button-modal-link').attr('disabled', 'disabled');
+    $('.button-modal-link').removeClass('skyblue');
+    $('.section-modal-link').toggle('hide');
+  });
+  // evento para el button de modal de video 
   $('.button-modal-video').on('click', function() {
     var $inputVideoValue = $inputVideo.val();
     $('.add-publications').append('<div class="col s6 prototype-video">' + 
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
                                     '<p class="description"></p>' +
-                                    '<div class="video-container">' + '<iframe width="560" height="315" src="' + $inputVideoValue + '" frameborder="0" allowfullscreen></iframe>' + '</div>' +
+                                    '<div class="video-container">' + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + $inputVideoValue + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' + '</div>' +
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
+                                      '<a class="btn-floating  waves-effect waves-light yellow arrow_downward"><i class="material-icons icons">arrow_downward</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
@@ -154,11 +196,7 @@ $(document).ready(function() {
     $('.button-modal-video').attr('disabled', 'disabled');
     $('.button-modal-video').removeClass('skyblue');
     $('.section-modal-video').toggle('hide');
-  });  
+  });
+ 
 });
-// $iconComment.on('click', function() {
-//   $('.append-messages').on('click', function() {
-//     $(this).show();
-//   });
-//   $('.append-messages').toggle('swing');    
-// });
+
