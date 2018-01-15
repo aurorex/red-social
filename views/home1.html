@@ -10,27 +10,25 @@
     <link rel="stylesheet" href="../css/home1.css">
   </head>
   <body>
-    <!-- estructura del header -->
-    <nav class=" nav-extended">
-      <div class="row flex-container">
-        <div class="col s3 l3 nav-wrapper">
-          <a href="#" class="brand-logo">Juntas</a>
-        </div>
-        <div class="col s4 l4 phrase center">
-           frase
-        </div>
-        <div class="col s5 l5 photo-profile center">
-          <a href="perfil.html"><h4 class="nick-name"></h4></a>
-        </div>
-      </div>
-    <!--opciones de contenidos de navegación(portada-amigas-eventos)-->
-      <div class="row">
-        <div class="nav-content col s12">
-          <ul id="tabs-swipe-demo" class=" tabs transparent">
-            <li class="tab col s4"><a href="#cover-page">Portada</a></li>
-            <li class="tab col s4"><a href="#friends">amigas</a></li>
-            <li class="tab col s4"><a href="#events">Eventos</a></li>
-          </ul>
+  <!-- estructura del header -->
+    <header>
+     <div class="container">
+       <div class="row">
+         <div class="col s12 phrase ">
+         </div>
+       </div>
+       <div class="row profile-nav">
+         <nav class="col s8 left">
+            <ul id="tabs-swipe-demo" class=" tabs transparent">
+              <li class="tab col s3"><a href="#cover-page">Portada</a></li>
+              <li class="tab col s3"><a href="#events">Eventos</a></li>
+            </ul>
+          </nav>
+          <div class="col s4 photo-profile right">
+              foto de perfil
+            <img src="" alt="">
+            <a href="perfil.html"><h1 class="nick-name"></h1></a>
+          </div>
         </div>
       </div>
     </nav>
@@ -54,11 +52,10 @@
           <div class="col s6 prototype-link ">
             <p class="user-publish">Publicado por: <a class="anchor-nickname">Chatpulina97</a></p>
             <p>"Time´s Up": qué hay detrás del anuncio de protesta en los Globos de Oro</p>
-            <a href="" target="_blank" class="aqui btn">https://elcomercio.pe/tvmas/hollywood/golden-globes-times-up-mensaje-asistentes-globos-oro-noticia-487160?foto=3</a>
+            <a href="https://elcomercio.pe/tvmas/hollywood/golden-globes-times-up-mensaje-asistentes-globos-oro-noticia-487160?foto=3" target="_blank" class="btn">https://elcomercio.pe/tvmas/hollywood/golden-globes-times-up-mensaje-asistentes-globos-oro-noticia-487160?foto=3</a>
             <div class="div-icons ">
               <a class="btn-floating  waves-effect waves-light red "><i class="material-icons icons">favorite_border</i></a>
               <a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons icons">comment</i></a>
-              <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">keyboard_arrow_downkeyboard_arrow_left</i></a>
               <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">star_border</i></a>
             </div>
             <div class="add-comments"></div>
@@ -70,7 +67,6 @@
             <div class="div-icons ">
               <a class="btn-floating  waves-effect waves-light red "><i class="material-icons icons">favorite_border</i></a>
               <a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons icons">comment</i></a>
-              <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">keyboard_arrow_downkeyboard_arrow_left</i></a>
               <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">star_border</i></a>
             </div>
             <div class="add-comments"></div>
@@ -84,7 +80,6 @@
             <div class="div-icons ">
               <a class="btn-floating  waves-effect waves-light red "><i class="material-icons icons">favorite_border</i></a>
               <a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons icons">comment</i></a>
-              <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">keyboard_arrow_downkeyboard_arrow_left</i></a>
               <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">star_border</i></a>
             </div>
             <div class="add-comments"></div>
@@ -98,37 +93,11 @@
             <div class="div-icons ">
               <a class="btn-floating  waves-effect waves-light red "><i class="material-icons icons">favorite_border</i></a>
               <a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons icons">comment</i></a>
-              <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">keyboard_arrow_downkeyboard_arrow_left</i></a>
               <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">star_border</i></a>
             </div>
             <div class="add-comments"></div>
           </div>
 
-      </div>
-    </section>
-  <!-- estructura de la sección 'amigas(friends)' -->
-    <section id="friends" class="col s12" >
-      <div class="container">
-        <div class="row">
-          <h1></h1>
-          <div class="search-friend">
-            <span></span><input type="text">
-          </div>
-        </div>
-        <div class="row">
-          <div class="result-search">
-            <img src="" alt="">
-            <button>seguir</button>
-          </div>
-        </div>
-        <div class="friends">
-          <img src="" alt=""><button></button>
-          <img src="" alt=""><button></button>
-          <img src="" alt=""><button></button>
-          <img src="" alt=""><button></button>
-          <img src="" alt=""><button></button>
-          <img src="" alt=""><button></button>
-        </div>
       </div>
     </section>
   <!-- estructura de la sección 'eventos(events)' -->
@@ -138,7 +107,6 @@
           <div class=" col s12 icon-notification">
               <h1>Eventos</h1>
               <a href=""><i class="material-icons">access_time</i></a>
-              <a href=""><i></i></a>
           </div>
           <div class="col s6 prototype-image">
             <p class="user-publish">Publicado por: <a class="anchor-nickname">Luna_forever</a></p>
@@ -149,7 +117,6 @@
             <div class="div-icons ">
               <a class="btn-floating  waves-effect waves-light red "><i class="material-icons icons">favorite_border</i></a>
               <a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons icons">comment</i></a>
-              <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">keyboard_arrow_downkeyboard_arrow_left</i></a>
               <a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons icons">star_border</i></a>
             </div>
             <div class="add-comments"></div>
@@ -204,8 +171,8 @@
         <div class="body-modal">
           <label for="">Agregar descripcion</label>
           <input class="description-video" type="text">
-          <label for="">Pegar link</label>
-          <input class="input-video" type="text">
+          <label for="">https://www.youtube.com/watch?v= OfIfzVf8t6E(codigo de video)</label>
+          <input class="input-video" type="text" placeholder="Pegar sólo codigo de video : OfIfzVf8t6E (ejemplo)">
         </div>
         <div class="footer-modal">
           <button class="button-modal-video" disabled>Publicar</button>
@@ -246,10 +213,6 @@
         </div>
       </div>
     </section>
-  <!-- estructura del footer -->
-    <footer>
-     chat
-    </footer>
   <!-- enlazando archivos js -->
     <script src="../vendors/js/jquery-3.2.1.min.js"></script>
     <script src="../vendors/materialize/js/materialize.min.js"></script>

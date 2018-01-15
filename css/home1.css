@@ -52,3 +52,8 @@ nav{
 .skyblue{
   background-color: hsl(182, 83%, 39%);
 }
+
+.add-comments{
+  overflow-y: scroll;
+  height: 200px;
+}
