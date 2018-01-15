@@ -4,34 +4,50 @@
   margin: 0;
 }
 
-body{
-
+header{
+  background: #ed4264;
+  background: -webkit-linear-gradient(to right, #ed4264, #ffedbc);
+  background: linear-gradient(to right, #ed4264, #ffedbc);
+}
+.text-header{
+  color:#ffff;
 }
 
 /* estilos para la sección del header */
-nav{
-  background: #556270;
-  background: -webkit-linear-gradient(to right, #556270, #ff6b6b);
-  background: linear-gradient(to right, #556270, #ff6b6b);
+.border-radius{
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #000000 !important;
+  border-radius: 50px ;
 }
-.col{
-  outline: 1px solid red;
-
-}
-.nav-content{
-  background: #ffff !important;
+.user-photo{
+  width: 50px;
+  height: 50px;
 }
 
-.nav,.photo-profile{
-  display: inline-block;
+.photo-profile{
+  margin: 2px solid #000000;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nick-name{
+  color: #000000;
 }
 
 nav{
   background-color: transparent;
-  border-bottom: none;
-  color:white;
 }
-
+.card-content{
+  color: hsl(0, 100%, 30%);
+}
+.btn-options{
+  background-color:rgba(255, 0, 0, 0.4);
+  color: #ffff;
+  height: 50px;
+  border: none;
+}
 /* estilos para la seccion modal */
 .modal-text, .modal-image, .modal-video, .modal-comment,.modal-link{
   /* margin: 100px 250px; */

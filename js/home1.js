@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('.slider').slider();
   // obteniendo datos del localStorage para agregar al header
   var $nickName = localStorage.getItem('nick-name');
   $('.nick-name').append($nickName);
@@ -58,7 +59,7 @@ $(document).ready(function() {
       $('.button-modal-image').addClass('skyblue', 'skyblue');
     }
   });
-  
+
   // funcion para validar el 'input-video'
   var $inputVideo = $('.input-video');
   $inputVideo.on('input', function() {
@@ -86,7 +87,7 @@ $(document).ready(function() {
   // funcionalidad para el boton del modal de texto
   $('.button-modal-text').on('click', function() {
     var $inputTextValue = $inputText.val();
-    $('.add-publications').append('<div class="col s6 prototype-text">' + 
+    $('.add-publications').append('<div class="col s6 prototype-text">' +
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
                                     '<p class="description"></p>' +
                                     '<p class="text-container">' + $inputTextValue + '</p>' +
@@ -96,7 +97,7 @@ $(document).ready(function() {
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
-                                  '</div>');  
+                                  '</div>');
     var $iconComment = $('.icon-comment');
     console.log($iconComment.length);
     console.log($('.add-comments'));
@@ -114,7 +115,7 @@ $(document).ready(function() {
           if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
             $('.button-modal-comment').attr('disabled', 'disabled');
             $('.button-modal-comment').removeClass('skyblue');
-            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+            alert('NO PUEDES INGRESAR TEXTO VACÍO');
           }
         });
         // evento para el button de modal de 'comment'
@@ -125,10 +126,10 @@ $(document).ready(function() {
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
           $('.section-modal-comment').toggle('hide');
-        });   
+        });
       });
     });
-    
+
     $('.description').append($('.description-text').val());
     $('.description-text').val('');
     $inputTextValue = $inputText.val('');
@@ -139,7 +140,7 @@ $(document).ready(function() {
   // evento para el button del 'image'
   $('.button-modal-image').on('click', function() {
     var $inputImageValue = $inputImage.val();
-    $('.add-publications').append('<div class="col s6 prototype-image">' + 
+    $('.add-publications').append('<div class="col s6 prototype-image">' +
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
                                     '<p class="description"></p>' +
                                     '<div class="image-container">' + '<img class="responsive-img" src="' + $inputImageValue + '">' + '</div>' +
@@ -149,7 +150,7 @@ $(document).ready(function() {
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
-                                  '</div>'); 
+                                  '</div>');
     var $iconComment = $('.icon-comment');
     console.log($iconComment.length);
     console.log($('.add-comments'));
@@ -167,7 +168,7 @@ $(document).ready(function() {
           if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
             $('.button-modal-comment').attr('disabled', 'disabled');
             $('.button-modal-comment').removeClass('skyblue');
-            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+            alert('NO PUEDES INGRESAR TEXTO VACÍO');
           }
         });
         // evento para el button de modal de 'comment'
@@ -178,20 +179,20 @@ $(document).ready(function() {
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
           $('.section-modal-comment').toggle('hide');
-        });   
+        });
       });
     });
     $('.description').append($('.description-image').val());
-    $('.description-image').val(''); 
+    $('.description-image').val('');
     $inputImageValue = $inputImage.val('');
     $('.button-modal-image').attr('disabled', 'disabled');
     $('.button-modal-image').removeClass('skyblue');
-    $('.section-modal-image').toggle('hide');   
-  }); 
-  // evento para el button de modal de 'link' 
+    $('.section-modal-image').toggle('hide');
+  });
+  // evento para el button de modal de 'link'
   $('.button-modal-link').on('click', function() {
     var $inputLinkValue = $inputLink.val();
-    $('.add-publications').append('<div class="col s6 prototype-video">' + 
+    $('.add-publications').append('<div class="col s6 prototype-video">' +
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
                                     '<p class="description"></p>' +
                                     '<a href="' + $inputLinkValue + '" target="_blank" class="btn">' + $inputLinkValue + '</a>' +
@@ -219,7 +220,7 @@ $(document).ready(function() {
           if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
             $('.button-modal-comment').attr('disabled', 'disabled');
             $('.button-modal-comment').removeClass('skyblue');
-            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+            alert('NO PUEDES INGRESAR TEXTO VACÍO');
           }
         });
         // evento para el button de modal de 'comment'
@@ -230,7 +231,7 @@ $(document).ready(function() {
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
           $('.section-modal-comment').toggle('hide');
-        });   
+        });
       });
     });
     $('.description').append($('.description-link').val());
@@ -240,10 +241,10 @@ $(document).ready(function() {
     $('.button-modal-link').removeClass('skyblue');
     $('.section-modal-link').toggle('hide');
   });
-  // evento para el button de modal de video 
+  // evento para el button de modal de video
   $('.button-modal-video').on('click', function() {
     var $inputVideoValue = $inputVideo.val();
-    $('.add-publications').append('<div class="col s6 prototype-video">' + 
+    $('.add-publications').append('<div class="col s6 prototype-video">' +
                                     '<p class="user-publish">Publicado por: <a class="anchor-nickname">' + $nickName + '</a></p>' +
                                     '<p class="description"></p>' +
                                     '<div class="video-container">' + '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + $inputVideoValue + '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>' + '</div>' +
@@ -271,7 +272,7 @@ $(document).ready(function() {
           if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
             $('.button-modal-comment').attr('disabled', 'disabled');
             $('.button-modal-comment').removeClass('skyblue');
-            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+            alert('NO PUEDES INGRESAR TEXTO VACÍO');
           }
         });
         // evento para el button de modal de 'comment'
@@ -282,7 +283,7 @@ $(document).ready(function() {
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
           $('.section-modal-comment').toggle('hide');
-        });   
+        });
       });
     });
     $('.description').append($('.description-video').val());
@@ -293,4 +294,3 @@ $(document).ready(function() {
     $('.section-modal-video').toggle('hide');
   });
 });
-
