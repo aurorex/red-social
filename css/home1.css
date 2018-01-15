@@ -5,15 +5,18 @@
 }
 
 body{
-  background-image: url(../assets/images/background.png);
+
 }
 
 /* estilos para la sección del header */
-header{
-  background-color: hsl(0, 88%, 67%);
-  height:20vh;
+nav{
+  background: #ed4264;
+  background: -webkit-linear-gradient(to right, #ed4264, #ffedbc);
+  background: linear-gradient(to right, #ed4264, #ffedbc);
 }
-
+.nav-content{
+  background: #ffff !important;
+}
 .profile-nav{
   display: flex;
   flex-direction: row;

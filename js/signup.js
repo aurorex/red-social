@@ -38,16 +38,16 @@ $(document).ready(function() {
     if (event.keyCode === 69) {
       if ($password.val().length <= 6 || $nickName.val().length <= 1) {
         $('.comment-password').show();
-        $btnFrase.attr('disabled', true); 
+        $btnFrase.attr('disabled', true);
         $btnRegistro.attr('disabled', true);
       }
       if ($password.val().length > 6 && $nickName.val().length <= 1) {
-        $btnFrase.attr('disabled', true); 
+        $btnFrase.attr('disabled', true);
         $btnRegistro.attr('disabled', true);
       }
     }
     if (event.keyCode === 32) {
-      alert('NO ESTA PERMITIDO ESPACIOS EN BLANCO')
+      alert('NO ESTA PERMITIDO ESPACIOS EN BLANCO');
       $nickName.val('');
       console.log($nickName.val().length);
     }
@@ -55,30 +55,29 @@ $(document).ready(function() {
   // CREANDO FUNCION QUE VALIDA LOS DATOS DEL IMPUT PASSWORD
 
   $password.on('keyup', function(event) {
-
-    console.log("NickNmae==>"+$nickName.val().length);
+    console.log('NickNmae ==>' + $nickName.val().length);
 
     if ($password.val().length <= 6) {
       $('.comment-password').show();
     } else if ($password.val().length > 6) {
       $('.comment-password').hide();
     }
-  
+
     if ($password.val().length > 6 && $nickName.val().length > 1) {
-      $btnFrase.attr('disabled', false); 
+      $btnFrase.attr('disabled', false);
     } else if ($password.val().length <= 6 || $nickName.val().length <= 1) {
-      $btnFrase.attr('disabled', true); 
+      $btnFrase.attr('disabled', true);
       $btnRegistro.attr('disabled', true);
-    } 
+    }
 
     if (event.keyCode === 69) {
       if ($password.val().length <= 6 || $nickName.val().length <= 1) {
         $('.comment-password').show();
-        $btnFrase.attr('disabled', true); 
+        $btnFrase.attr('disabled', true);
         $btnRegistro.attr('disabled', true);
       }
       if ($password.val().length > 6 && $nickName.val().length <= 1) {
-        $btnFrase.attr('disabled', true); 
+        $btnFrase.attr('disabled', true);
         $btnRegistro.attr('disabled', true);
       }
     }
@@ -91,20 +90,16 @@ $(document).ready(function() {
     //  CREANDO VARIALE PARA IMAGENES DE FRASES ALEATORIAS
     var aleatorio = Math.floor(Math.random() * (max - (min - 1))) + min;
     var imagePhrase = '<img src="../assets/images/frase' + aleatorio + '.png' + '">';
-    
+
     var phraseContainer = $('.frase'); // div que contiene el botón de frase y almacenará el img-frase
     phraseContainer.empty();
     phraseContainer.append(imagePhrase);
   });
   // CREANDO FUNCION QUE GUARDA DATOS EN EL NAVEGADOR
-<<<<<<< HEAD
-=======
   $btnFrase.on('click', function() {
     localStorage.setItem('img-frase', $imagePhrase.val());
   });
->>>>>>> aurora
   $btnRegistro.on('click', function() {
     localStorage.setItem('nick-name', $nickName.val());
   });
-  
 });

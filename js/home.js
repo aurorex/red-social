@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // obteniendo datos para agregar al header
   var $nickName = localStorage.getItem('nick-name');
-  $('div.div-nickname>p').append($nickName);
+  $('div.div-nickname>h3').append($nickName);
   // funcionalidad para el modal 'comentar'
   var $iconComment = $('.icon-comment');
   // evento para el icono 'comment'
@@ -47,9 +47,9 @@ $(document).ready(function() {
 >>>>>>> master
 >>>>>>> aurora
     });
-    $('.append-messages').toggle('swing');    
+    $('.append-messages').toggle('swing');
   });
-  
+
   // funcionalidad para el button y icon del modal
   $('.button-modal').on('click', function() {
     var $inputValue = $('div.add-comment>input').val();
@@ -149,7 +149,7 @@ $(document).ready(function() {
 <<<<<<< HEAD
         $('.button-modal').removeAttr('disabled');
 =======
-        $('.button-modal').removeAttr('disabled');  
+        $('.button-modal').removeAttr('disabled');
 >>>>>>> aurora
         if ($inputTitleValue === '' || event.keyCode === 69 && $inputTitleValue.lenght <= 1) {
           $('.button-modal').attr('disabled', 'disabled');
@@ -160,7 +160,7 @@ $(document).ready(function() {
 <<<<<<< HEAD
         $('.button-modal').removeAttr('disabled');
 =======
-        $('.button-modal').removeAttr('disabled');  
+        $('.button-modal').removeAttr('disabled');
 >>>>>>> aurora
       });
       // evento del button del modal: agregando elementos al html
@@ -180,7 +180,7 @@ $(document).ready(function() {
         $('div.card-content>span.title').append($inputTitleValue);
         $inputTitleValue = $inputTitle.val('');
         // evento para el input 'add-img'
-        var $inputImageValue = $inputImage.val();                
+        var $inputImageValue = $inputImage.val();
 >>>>>>> aurora
         $('div.card-content>img.img').attr('src', '../assets/images/' + $inputImageValue);
         $inputImageValue = $inputImage.val('');
