@@ -10,16 +10,16 @@ body{
 
 /* estilos para la sección del header */
 nav{
-  background: #ed4264;
-  background: -webkit-linear-gradient(to right, #ed4264, #ffedbc);
-  background: linear-gradient(to right, #ed4264, #ffedbc);
+  background: #556270;
+  background: -webkit-linear-gradient(to right, #556270, #ff6b6b);
+  background: linear-gradient(to right, #556270, #ff6b6b);
+}
+.col{
+  outline: 1px solid red;
+
 }
 .nav-content{
   background: #ffff !important;
-}
-.profile-nav{
-  display: flex;
-  flex-direction: row;
 }
 
 .nav,.photo-profile{
