@@ -93,45 +93,44 @@ $(document).ready(function() {
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow arrow_downward"><i class="material-icons icons">arrow_downward</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
                                   '</div>');  
     var $iconComment = $('.icon-comment');
-    $iconComment.on('click', function() {
-      $('.section-modal-comment').toggle('show');
-      // funcion para validar el 'input-comment'
-      var $inputComment = $('.input-comment');
-      $inputComment.on('keyup', function() {
-        console.log('asd');
-        var $inputCommentValue = $(this).val();
-        $('.button-modal-comment').removeAttr('disabled');
-        $('.button-modal-comment').addClass('skyblue', 'skyblue');
-        if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
+    console.log($iconComment.length);
+    console.log($('.add-comments'));
+    $($iconComment).each(function(index, element) {
+      console.log(index);
+      console.log($('.add-comments')[index]);
+      $(element).on('click', function() {
+        $('.section-modal-comment').toggle('show');
+        // funcion para validar el 'input-comment'
+        var $inputComment = $('.input-comment');
+        $inputComment.on('keyup', function() {
+          var $inputCommentValue = $(this).val();
+          $('.button-modal-comment').removeAttr('disabled');
+          $('.button-modal-comment').addClass('skyblue', 'skyblue');
+          if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
+            $('.button-modal-comment').attr('disabled', 'disabled');
+            $('.button-modal-comment').removeClass('skyblue');
+            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+          }
+        });
+        // evento para el button de modal de 'comment'
+        $('.button-modal-comment').on('click', function() {
+          var $inputCommentValue = $inputComment.val();
+          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          $inputCommentValue = $inputComment.val('');
           $('.button-modal-comment').attr('disabled', 'disabled');
           $('.button-modal-comment').removeClass('skyblue');
-          alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
-        }
-        // evento para el icono 'arrow_downward'
-        $('.arrow_downward').on('click', function() {
-          $('.add-comments').on('click', function() {
-            $(this).show();
-          });
-          $('.add-comments').toggle('swing');    
-        });  
+          $('.section-modal-comment').toggle('hide');
+        });   
       });
-      // evento para el button de modal de 'comment'
-      $('.button-modal-comment').on('click', function() {
-        var $inputCommentValue = $inputComment.val();
-        $('.add-comments').empty();
-        $('.add-comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
-        $inputCommentValue = $inputComment.val('');
-        $('.button-modal-comment').attr('disabled', 'disabled');
-        $('.button-modal-comment').removeClass('skyblue');
-        $('.section-modal-comment').toggle('hide');
-      });   
-    });              
+    });
+    
+    $('.description').append($('.description-text').val());
+    $('.description-text').val('');
     $inputTextValue = $inputText.val('');
     $('.button-modal-text').attr('disabled', 'disabled');
     $('.button-modal-text').removeClass('skyblue');
@@ -147,11 +146,43 @@ $(document).ready(function() {
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow" arrow_downward "><i class="material-icons icons">arrow_downward</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
-                                  '</div>');  
+                                  '</div>'); 
+    var $iconComment = $('.icon-comment');
+    console.log($iconComment.length);
+    console.log($('.add-comments'));
+    $($iconComment).each(function(index, element) {
+      console.log(index);
+      console.log($('.add-comments')[index]);
+      $(element).on('click', function() {
+        $('.section-modal-comment').toggle('show');
+        // funcion para validar el 'input-comment'
+        var $inputComment = $('.input-comment');
+        $inputComment.on('keyup', function() {
+          var $inputCommentValue = $(this).val();
+          $('.button-modal-comment').removeAttr('disabled');
+          $('.button-modal-comment').addClass('skyblue', 'skyblue');
+          if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
+            $('.button-modal-comment').attr('disabled', 'disabled');
+            $('.button-modal-comment').removeClass('skyblue');
+            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+          }
+        });
+        // evento para el button de modal de 'comment'
+        $('.button-modal-comment').on('click', function() {
+          var $inputCommentValue = $inputComment.val();
+          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          $inputCommentValue = $inputComment.val('');
+          $('.button-modal-comment').attr('disabled', 'disabled');
+          $('.button-modal-comment').removeClass('skyblue');
+          $('.section-modal-comment').toggle('hide');
+        });   
+      });
+    });
+    $('.description').append($('.description-image').val());
+    $('.description-image').val(''); 
     $inputImageValue = $inputImage.val('');
     $('.button-modal-image').attr('disabled', 'disabled');
     $('.button-modal-image').removeClass('skyblue');
@@ -167,11 +198,43 @@ $(document).ready(function() {
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow arrow_downward"><i class="material-icons icons">arrow_downward</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
                                   '</div>');
+    var $iconComment = $('.icon-comment');
+    console.log($iconComment.length);
+    console.log($('.add-comments'));
+    $($iconComment).each(function(index, element) {
+      console.log(index);
+      console.log($('.add-comments')[index]);
+      $(element).on('click', function() {
+        $('.section-modal-comment').toggle('show');
+        // funcion para validar el 'input-comment'
+        var $inputComment = $('.input-comment');
+        $inputComment.on('keyup', function() {
+          var $inputCommentValue = $(this).val();
+          $('.button-modal-comment').removeAttr('disabled');
+          $('.button-modal-comment').addClass('skyblue', 'skyblue');
+          if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
+            $('.button-modal-comment').attr('disabled', 'disabled');
+            $('.button-modal-comment').removeClass('skyblue');
+            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+          }
+        });
+        // evento para el button de modal de 'comment'
+        $('.button-modal-comment').on('click', function() {
+          var $inputCommentValue = $inputComment.val();
+          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          $inputCommentValue = $inputComment.val('');
+          $('.button-modal-comment').attr('disabled', 'disabled');
+          $('.button-modal-comment').removeClass('skyblue');
+          $('.section-modal-comment').toggle('hide');
+        });   
+      });
+    });
+    $('.description').append($('.description-link').val());
+    $('.description-link').val('');
     $inputLinkValue = $inputLink.val('');
     $('.button-modal-link').attr('disabled', 'disabled');
     $('.button-modal-link').removeClass('skyblue');
@@ -187,16 +250,47 @@ $(document).ready(function() {
                                     '<div class="div-icons ">' +
                                       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
-                                      '<a class="btn-floating  waves-effect waves-light yellow arrow_downward"><i class="material-icons icons">arrow_downward</i></a>' +
                                       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
                                     '</div>' +
                                     '<div class="add-comments"></div>' +
                                   '</div>');
+    var $iconComment = $('.icon-comment');
+    console.log($iconComment.length);
+    console.log($('.add-comments'));
+    $($iconComment).each(function(index, element) {
+      console.log(index);
+      console.log($('.add-comments')[index]);
+      $(element).on('click', function() {
+        $('.section-modal-comment').toggle('show');
+        // funcion para validar el 'input-comment'
+        var $inputComment = $('.input-comment');
+        $inputComment.on('keyup', function() {
+          var $inputCommentValue = $(this).val();
+          $('.button-modal-comment').removeAttr('disabled');
+          $('.button-modal-comment').addClass('skyblue', 'skyblue');
+          if ($inputCommentValue === '' || event.keyCode === 69 && $inputCommentValue.length < 1 || event.keyCode === 32 && $inputCommentValue.length <= 4) {
+            $('.button-modal-comment').attr('disabled', 'disabled');
+            $('.button-modal-comment').removeClass('skyblue');
+            alert('NO PUEDES INGRESAR TEXTO VACÍO'); 
+          }
+        });
+        // evento para el button de modal de 'comment'
+        $('.button-modal-comment').on('click', function() {
+          var $inputCommentValue = $inputComment.val();
+          $($('.add-comments')[index]).append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputCommentValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
+          $inputCommentValue = $inputComment.val('');
+          $('.button-modal-comment').attr('disabled', 'disabled');
+          $('.button-modal-comment').removeClass('skyblue');
+          $('.section-modal-comment').toggle('hide');
+        });   
+      });
+    });
+    $('.description').append($('.description-video').val());
+    $('.description-video').val('');
     $inputVideoValue = $inputVideo.val('');
     $('.button-modal-video').attr('disabled', 'disabled');
     $('.button-modal-video').removeClass('skyblue');
     $('.section-modal-video').toggle('hide');
   });
- 
 });
 
