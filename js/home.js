@@ -22,7 +22,6 @@ $(document).ready(function() {
       var $inputValue = $('div.add-comment>input').val();
       $('.comments').append('<span class="color-span">' + $nickName + ':' + ' </span>' + '<p class="color-p">' + $inputValue + '<br>' + moment().format('LLLL') + '</p>' + '<br>');
       $inputValue = $('div.add-comment>input').val('');
-
     });
     $('.icon-close').on('click', function() {
       $('.comments').empty();
@@ -109,14 +108,14 @@ $(document).ready(function() {
       // evento para los inputs del modal
       $inputTitle.on('keyup', function(event) {
         var $inputTitleValue = $inputTitle.val();
-        $('.button-modal').removeAttr('disabled');  
+        $('.button-modal').removeAttr('disabled');
         if ($inputTitleValue === '' || event.keyCode === 69 && $inputTitleValue.lenght <= 1) {
           $('.button-modal').attr('disabled', 'disabled');
         }
       });
       $inputImage.on('click', function() {
         var $inputImageValue = $inputImage.val();
-        $('.button-modal').removeAttr('disabled');  
+        $('.button-modal').removeAttr('disabled');
       });
       // evento del button del modal: agregando elementos al html
       $('.button-modal').on('click', function() {
@@ -128,7 +127,7 @@ $(document).ready(function() {
         $('div.card-content>span.title').append($inputTitleValue);
         $inputTitleValue = $inputTitle.val('');
         // evento para el input 'add-img'
-        var $inputImageValue = $inputImage.val();                
+        var $inputImageValue = $inputImage.val();
         $('div.card-content>img.img').removeAttr('src');
         $('div.card-content>img.img').attr('src', '../assets/images/' + $inputImageValue);
         $inputImageValue = $inputImage.val('');
