@@ -73,10 +73,10 @@ nav{
   background-color: hsl(182, 83%, 39%);
 }
 
-.add-comments{
+/* .add-comments{
   overflow-y: scroll;
   height: 200px;
-}
+} */
 
 .input-text, .input-comment{
   overflow-y: scroll;
@@ -84,6 +84,33 @@ nav{
 }
 
 .add-publications {
-  border: 2px solid rgba(255, 0, 0, 0.6);
+  padding: 10px;
+}
+
+.background-red{
+  border-radius: 50px;
+  background-color:hsla(0, 100%, 90%, 0.3);
+}
+
+.prototype-text {
+ border-bottom:2px solid pink;
+ border-right:2px solid  pink;
+ margin:10px;
+}
+.div-icons{
+  margin: 20px 10px;
+}
+
+.color-span{
+  background: #ffff;
+  color: hsl(0, 100%, 30%);
+  padding: 20px;
+}
+.color-p{
+  background: #ed4264;
+  background: -webkit-linear-gradient(to right, #ed4264, #ffedbc);
+  background: linear-gradient(to right, #ed4264, #ffedbc);
+  color: #ffff;
+  margin-bottom: 10px;
   padding: 10px;
 }

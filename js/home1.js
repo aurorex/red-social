@@ -95,7 +95,7 @@ $(document).ready(function() {
       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-    '</div>' +
+    '</div>' + '<hr>' +
     '<div class="add-comments"></div>' +
     '</div>';
     // guardar publicaciones
@@ -158,7 +158,7 @@ $(document).ready(function() {
       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-    '</div>' +
+    '</div>' + '<hr>' +
     '<div class="add-comments"></div>' +
     '</div>';
     // guardar publicaciones
@@ -221,7 +221,7 @@ $(document).ready(function() {
       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-    '</div>' +
+    '</div>' + '<hr>' +
     '<div class="add-comments"></div>' +
     '</div>';
     // guardar publicaciones
@@ -284,7 +284,7 @@ $(document).ready(function() {
       '<a class="btn-floating  waves-effect waves-light red "><i class="material-icons ">favorite_border</i></a>' +
       '<a class="btn-floating  waves-effect waves-light green icon-comment"><i class="material-icons">comment</i></a>' +
       '<a class="btn-floating  waves-effect waves-light yellow "><i class="material-icons">star_border</i></a>' +
-    '</div>' +
+    '</div>' + '<hr>' +
     '<div class="add-comments"></div>' +
     '</div>';
     // guardar publicaciones
